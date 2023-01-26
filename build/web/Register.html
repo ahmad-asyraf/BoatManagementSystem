@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Register</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+        <!---we had linked our css file----->
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body{
+                background-image: url("images/Sea.png");
+                background-size: cover;
+            }
+            .container{
+                font: montserrat;
+                font-size: 30px;
+                text-align: center;
+                font-weight: bold;
+                width: 100%;
+                display: block;
+                height: 100px;
+                margin-top: 30px;
+            }
+            a{
+                text-decoration: none;
+                color: palevioletred;
+                font-size: 28px;
+            }
+            #register-form{
+                display: none;
+            }
+            .form-box{
+                width:380px;
+                height:540px;
+                position:relative;
+                margin:5% auto;
+                padding:10px;
+                overflow: hidden;
+                background: rgba(250,250,250,0.85);
+                color: black;
+                font-size: 20px;
+            }
+            .button-box{
+                width:275px;
+                margin:45px;
+                position:relative;
+                box-shadow: 0 0 5px 5px #ABB4D9;
+                border-radius: 30px;
+
+            }
+            .toggle-btn
+            {
+                padding:10px 30px;
+                cursor:pointer;
+                background:transparent;
+                border:0;
+                outline: none;
+                position: relative;
+                color:black;
+            }
+            #btn
+            {
+                top: 0;
+                left:0;
+                position: absolute;
+                width: 150px;
+                height: 100%;
+                background: #ABB4D9;
+                border-radius: 30px;
+                transition: .5s;
+            }
+            .input-group-customer
+            {
+                top: 100px;
+                position:absolute;
+                width:280px;
+                transition:.5s;
+            }
+            .input-group-boat
+            {
+                top: 100px;
+                position:absolute;
+                width:280px;
+                transition:.5s;
+            }
+            .input-field
+            {
+                width: 100%;
+                padding:10px 0;
+                margin:5px 0;
+                border-left:0;
+                border-top:0;
+                border-right:0;
+                border-bottom: 1px solid #999;
+                outline:none;
+                background: transparent;
+            }
+            .submit-btn
+            {
+                width: 85%;
+                padding: 10px 30px;
+                cursor: pointer;
+                display: block;
+                margin: 20px;
+
+                border: 0;
+                outline: none;
+                border-radius: 30px;
+                background:#313A5E;
+                color: white;
+            }
+            #customer
+            {
+                left:50px;
+            }
+            #customer input
+            {
+                color:black;
+                font-size: 17px;
+            }
+            #boat
+            {
+                left:450px;
+            }
+            #boat input
+            {
+                color:black;
+                font-size: 17px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="form-box">
+                <div class='button-box'>
+                    <div id='btn'></div>
+                    <button type='button' onclick='customer()' class='toggle-btn'>Customer</button>
+                    <button type='button' onclick='boat()' class='toggle-btn'>Boat Company</button>
+                </div>
+                <form id='customer' class='input-group-customer' action="Register.jsp" method="post">
+                    <input type="text" name="fname" class='input-field' placeholder="Enter First Name" required>
+                    <input type="text" name="lname" class='input-field' placeholder="Enter Last Name" required>
+                    <input type="text"  name="phno" class='input-field' placeholder="Enter Phone Number" onkeypress=" return event.charCode >= 48 && event.charCode <= 57" required>
+                    <input type="text" name="address" class='input-field' placeholder="Enter Address" required>
+                    <input type="email" name="email" class='input-field' placeholder="Enter Email" required>
+                    <input type="password" name="pass1" class='input-field' placeholder="Enter Password" required>
+                    <input type="password" name="pass2" class='input-field' placeholder="Retype Password" required>
+                    <button type='submit' class='submit-btn'>Submit</button>
+                </form>
+                <form id='boat' class='input-group-boat' action="BoatRegister.jsp" method="post">
+                    <input type="text" name="bname" class='input-field' placeholder="Enter Boat Company Name" required>
+                    <input type="text"  name="offno" class='input-field' placeholder="Enter Office Number" onkeypress=" return event.charCode >= 48 && event.charCode <= 57" required>
+                    <input type="text" name="address" class='input-field' placeholder="Enter Address" required>
+                    <input type="email" name="email" class='input-field' placeholder="Enter Company's Email" required>
+                    <input type="password" name="pass1" class='input-field' placeholder="Enter Password" required>
+                    <input type="password" name="pass2" class='input-field' placeholder="Retype Password" required>
+                    <button type='submit' class='submit-btn'>Submit</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            var x = document.getElementById('customer');
+            var y = document.getElementById('boat');
+            var z = document.getElementById('btn');
+            function customer()
+            {
+                x.style.left = '-400px';
+                y.style.left = '50px';
+                z.style.left = '110px';
+            }
+            function boat()
+            {
+                x.style.left = '50px';
+                y.style.left = '450px';
+                z.style.left = '0px';
+            }
+        </script>
+        <script>
+            var modal = document.getElementById('register-form');
+            window.onclick = function (event)
+            {
+                if (event.target === modal)
+                {
+                    modal.style.display = "none";
+                }
+            };
+        </script>
+    </body>
+</html>
